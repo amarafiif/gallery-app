@@ -2,9 +2,8 @@ const express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
     cors = require('cors'),
-    router = require('./routes/index'),
-    swaggerUi = require('swagger-ui-express'),
-    swaggerJson = require('./openapi.json')
+    router = require('./routers'),
+    errorHandling = require('./middlewares/errorHandling')
 
 require('dotenv').config()
 
@@ -12,6 +11,7 @@ app.use(express.json({ strict:false }))
 app.use(cors())
 app.use('/images', express.static('public/images'))
 app.use('/api/v1', router)
+app.use(errorHandling)
 
 app.get('*', (req, res) => {
     return res.status(404).json({
