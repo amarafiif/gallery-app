@@ -4,6 +4,7 @@ const express = require('express'),
     multer = require('multer')()
 
 router.post('/create', multer.single('image'), controller.create);
+router.get('/', controller.show);
 router.put('/update/:id',multer.single('image'), controller.update);
 router.get('/:id', controller.get);
 router.delete('/:id', controller.destroy);

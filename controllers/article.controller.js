@@ -60,6 +60,19 @@ module.exports = {
             next(error)
         }
     },
+
+    show: async (req, res, next) => {
+        try {
+            const data = await articles.findMany()
+
+            return res.status(200).json({
+                data
+            })
+        } catch (error) {
+            next(error)
+        }
+    },
+
     get: async (req, res, next) => {
         try {
 

@@ -3,7 +3,9 @@ const express = require('express'),
     port = process.env.PORT || 3000,
     cors = require('cors'),
     router = require('./routers'),
-    errorHandling = require('./middlewares/errorHandling')
+    errorHandling = require('./middlewares/errorHandling'),
+    swaggerUi = require('swagger-ui-express'),
+    documentation = require('./documentation/openapi.json')
 
 require('dotenv').config()
 
@@ -11,6 +13,7 @@ app.use(express.json({ strict:false }))
 app.use(cors())
 app.use('/images', express.static('public/images'))
 app.use('/api/v1', router)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(documentation));
 app.use(errorHandling)
 
 app.get('*', (req, res) => {
