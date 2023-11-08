@@ -1,12 +1,12 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Challenge Chapter 5 Documentation API",
+        "title": "GalleryApp Documentation API",
         "version": "1.0.11"
     },
     "externalDocs": {
-        "description": "Find out more about Swagger",
-        "url": "http://swagger.io"
+        "description": "Find out more about this repository",
+        "url": "https://github.com/amarafiif/gallery-app.git"
     },
     "servers": [
         {
@@ -170,7 +170,7 @@
                 }
             }
         },
-        "/articles/create": {
+        "/article/create": {
             "post": {
                 "summary": "Create a new article",
                 "tags": [
