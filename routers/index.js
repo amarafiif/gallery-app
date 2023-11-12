@@ -4,8 +4,10 @@ const express = require('express'),
     categoryRouter = require('./category.router'),
     articleRouter = require('./article.router');
 
+const authenticate  = require('../middlewares/authenticated')
+
 router.use('/user', userRouter);
-router.use('/category', categoryRouter);
-router.use('/article', articleRouter);
+router.use('/category', authenticate, categoryRouter);
+router.use('/article', authenticate, articleRouter);
 
 module.exports = router
